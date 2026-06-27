@@ -1,0 +1,23 @@
+{
+  "name": "PYRORA Pump Volume",
+  "short_name": "PYRORA",
+  "description": "Live pump.fun token volume dashboard.",
+  "start_url": "/spinecoin.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f4f2",
+  "theme_color": "#f4f4f2",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/assets/pyrora-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/pyrora-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

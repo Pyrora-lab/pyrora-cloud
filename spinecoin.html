@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PYRORA | Pump Volume</title>
+    <link rel="icon" href="data:,">
+    <meta name="theme-color" content="#f4f4f2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="PYRORA">
+    <link rel="apple-touch-icon" href="assets/pyrora-icon-180.png">
+    <link rel="manifest" href="pyrora.webmanifest">
+    <link rel="stylesheet" href="spinecoin.css?v=9">
+  </head>
+  <body>
+    <main class="dashboard">
+      <img class="watermark" src="assets/pyrora-dino-watermark.png" alt="">
+
+      <header class="topbar">
+        <a class="brand" href="#overview" aria-label="PYRORA home">
+          <img src="assets/pyrora-logo.png" alt="PYRORA logo">
+          <span>PYRORA</span>
+        </a>
+
+        <aside class="price-card" aria-label="Data source">
+          <div>
+            <span>Source</span>
+            <strong id="sourceState">Loading</strong>
+            <em id="sourceDetail">pump.fun + DEX Screener</em>
+          </div>
+          <svg viewBox="0 0 120 50" role="img" aria-label="Volume sparkline">
+            <polyline id="sparkline" points="2,39 15,27 25,32 37,20 48,25 62,17 74,21 87,8 102,14 118,6"></polyline>
+          </svg>
+        </aside>
+      </header>
+
+      <section id="kolscan" class="front-kol-section">
+        <article class="panel leaderboard-card">
+          <div class="panel-top">
+            <div>
+              <p class="eyebrow"><i></i> Top Performing KOLs</p>
+              <h2>KOLScan Leaderboard</h2>
+            </div>
+            <a class="external-link" href="https://kolscan.io/leaderboard" target="_blank" rel="noreferrer">Open KOLScan</a>
+          </div>
+          <div id="leaderboardRows" class="leaderboard-list">
+            <p>Loading KOLScan leaderboard...</p>
+          </div>
+        </article>
+      </section>
+
+      <section id="overview" class="metric-grid" aria-label="Live pump.fun volume overview">
+        <article class="panel lighthouse-main">
+          <button class="expand" type="button" aria-label="Expand pump volume card">[]</button>
+          <div class="panel-top">
+            <p class="eyebrow"><i></i> Pump.fun Volume <b id="windowLabel">24H</b></p>
+            <div class="time-switch" aria-label="Market data window">
+              <button type="button" data-window="m5">5m</button>
+              <button type="button" data-window="h1">1h</button>
+              <button class="active" type="button" data-window="h24">24h</button>
+            </div>
+          </div>
+
+          <div class="stat-pair">
+            <div>
+              <span>Total Volume</span>
+              <strong id="totalVolume">Loading</strong>
+              <em id="volumeMeta">USD</em>
+            </div>
+            <div>
+              <span>Total Trades</span>
+              <strong id="totalTrades">--</strong>
+              <em id="tradeMeta">buys+sells</em>
+            </div>
+          </div>
+
+          <div class="volume-strip">
+            <span id="volumeTitle">24h buy/sell activity</span>
+            <strong><span id="transactionTotal">-- txns</span> <em id="refreshAge">refreshing</em></strong>
+            <div class="split-line"><i id="buySplitLine" style="--w:50%"></i><b></b></div>
+            <p><mark id="buySplit">Buys --</mark><mark id="sellSplit">Sells --</mark></p>
+          </div>
+        </article>
+
+        <article class="panel compact">
+          <p class="eyebrow">Tokens sampled</p>
+          <h2 id="tokensSampled">--</h2>
+          <p class="change">live pump.fun list</p>
+        </article>
+
+        <article class="panel compact">
+          <p class="eyebrow">Graduations</p>
+          <h2 id="graduatedCount">--</h2>
+          <p class="change">in selected window</p>
+        </article>
+
+        <article class="panel compact source-card">
+          <p class="eyebrow">Sample complete</p>
+          <h2 id="completeCount">--</h2>
+          <p class="source-note">Graduated tokens in current sample.</p>
+        </article>
+      </section>
+
+      <section id="tokens" class="middle-grid">
+        <article class="panel launchpads">
+          <h2>Top Pump Tokens</h2>
+          <div id="topTokens" class="pill-row">
+            <div><span>loading</span><strong>--</strong><em>--</em></div>
+            <div><span>loading</span><strong>--</strong><em>--</em></div>
+            <div><span>loading</span><strong>--</strong><em>--</em></div>
+          </div>
+        </article>
+
+        <article id="protocols" class="panel launchpads">
+          <h2>Protocol Volume</h2>
+          <div id="protocolRows" class="pill-row">
+            <div><span>loading</span><strong>--</strong><em>--</em></div>
+            <div><span>loading</span><strong>--</strong><em>--</em></div>
+            <div><span>loading</span><strong>--</strong><em>--</em></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="lower-grid">
+        <article class="panel graduation-card">
+          <h2 id="graduationTitle">24H Graduations</h2>
+          <div class="graduation-summary">
+            <div>
+              <span>Graduated tokens</span>
+              <strong id="graduationWindowCount">--</strong>
+              <em id="graduationWindowLabel">selected window</em>
+            </div>
+            <button id="openTopTweets" class="kolscan-link" type="button">
+              <span>KOLScan</span>
+              <strong>Top tweets</strong>
+              <em>Open bottom sheet</em>
+            </button>
+          </div>
+          <div id="graduatedTokenList" class="graduated-list">
+            <p>No graduation data loaded yet.</p>
+          </div>
+        </article>
+
+        <article class="panel source-panel compact-info-panel">
+          <h2>Live Sources</h2>
+          <p id="sourceNote" class="compact-source-note">pump.fun volume refreshes every 15 seconds. KOLScan refreshes every minute.</p>
+        </article>
+      </section>
+
+      <footer id="source" class="footer">
+        <span><i></i> Live pump.fun volume</span>
+        <span>Last updated: <time id="updatedTime">--:--:--</time></span>
+        <span>pump.fun + DEX Screener <i></i></span>
+      </footer>
+    </main>
+
+    <button id="tweetDock" class="tweet-dock hidden" type="button">
+      <span>Top KOL Tweets</span>
+      <strong>Open latest posts</strong>
+    </button>
+
+    <div id="tweetModal" class="modal hidden bottom-sheet" role="dialog" aria-modal="true" aria-labelledby="tweetModalTitle">
+      <div class="modal-backdrop" data-close-modal></div>
+      <article class="modal-card">
+        <button id="tweetModalClose" class="modal-close" type="button" aria-label="Close tweet popup">x</button>
+        <div class="modal-head">
+          <p class="eyebrow">Recent Tweets</p>
+          <h2 id="tweetModalTitle">Latest Tweets</h2>
+          <p id="tweetModalMeta">Loading X timeline...</p>
+        </div>
+        <div id="tweetModalBody" class="tweet-frame"></div>
+        <div id="tweetModalActions" class="tweet-actions"></div>
+      </article>
+    </div>
+
+    <script src="spinecoin.js?v=9"></script>
+  </body>
+</html>

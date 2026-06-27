@@ -1,0 +1,13 @@
+{
+  "name": "pyrora-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PYRORA pump.fun and KOLScan dashboard",
+  "main": "spinecoin-server.js",
+  "scripts": {
+    "start": "node spinecoin-server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
