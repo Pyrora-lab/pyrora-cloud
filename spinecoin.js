@@ -432,10 +432,10 @@ async function loadPumpVolume() {
     state.lastLoadedAt = Date.now();
     render();
   } catch (error) {
-    els.sourceState.textContent = "Server needed";
-    els.sourceDetail.textContent = "Open localhost";
+    els.sourceState.textContent = "Blocked";
+    els.sourceDetail.textContent = "pump.fun API";
     if (els.sourceNote) {
-      els.sourceNote.textContent = `Live pump.fun data requires the local PYRORA server because pump.fun blocks browser CORS. ${error.message}`;
+      els.sourceNote.textContent = `Live pump.fun data could not load: ${error.message}`;
     }
   }
 }
